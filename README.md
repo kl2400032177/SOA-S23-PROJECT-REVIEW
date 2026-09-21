@@ -28,6 +28,7 @@ The system provides:
 - Scalable backend architecture
 
   ## 🏗️ System Architecture
+<img width="1536" height="1024" alt="ChatGPT Image Sep 21, 2026, 07_46_11 PM" src="https://github.com/user-attachments/assets/f9b11fc5-cd28-4694-9b73-87ec73f86d27" />
 ![Uploading ChatGPT Image Sep 21, 2026, 07_46_11 PM.png…]()
 
 

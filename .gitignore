@@ -1,0 +1,21 @@
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local configuration / secrets
+application-local.properties
+application-local.yml

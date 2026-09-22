@@ -23,15 +23,18 @@ public class BookingService {
             throw new IllegalArgumentException("checkOut must be after checkIn");
         }
 
-        // 1. Ask Room Service if it's free
-        AvailabilityResponse availability = roomServiceClient.checkAvailability(
-                request.getRoomId(), request.getCheckIn(), request.getCheckOut());
+        AvailabilityResponse availability;
+        try {
+            availability = roomServiceClient.checkAvailability(
+                    request.getRoomId(), request.getCheckIn(), request.getCheckOut());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Could not reach Room Service: " + e.getMessage());
+        }
 
         if (!availability.isAvailable()) {
             throw new IllegalArgumentException("Room is not available for the requested dates");
         }
 
-        // 2. Save the reservation first so we have a bookingId
         Reservation reservation = new Reservation();
         reservation.setRoomId(request.getRoomId());
         reservation.setGuestEmail(request.getGuestEmail());
@@ -40,14 +43,12 @@ public class BookingService {
         reservation.setStatus("CONFIRMED");
         reservation = reservationRepository.save(reservation);
 
-        // 3. Tell Room Service to block those dates against this booking
         try {
             roomServiceClient.blockDates(new BlockDateRequest(
                     request.getRoomId(), request.getCheckIn(), request.getCheckOut(), reservation.getId()));
         } catch (Exception e) {
-            // Roll back the reservation if the block failed (e.g. race condition, room went unavailable)
             reservationRepository.delete(reservation);
-            throw new IllegalArgumentException("Could not lock the room for these dates, please try again");
+            throw new IllegalArgumentException("Could not lock the room for these dates: " + e.getMessage());
         }
 
         return reservation;
@@ -64,7 +65,6 @@ public class BookingService {
         reservation.setStatus("CANCELLED");
         reservationRepository.save(reservation);
 
-        // Release the blocked dates in Room Service
         roomServiceClient.releaseDates(bookingId);
 
         return reservation;

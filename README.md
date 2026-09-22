@@ -50,13 +50,15 @@ The system provides:
 
 ## SOME OF THE OUTPUTS FROM POSTMAN TESTING BACKEND
 
-<img width="767" height="635" alt="Screenshot 2026-09-22 083604" src="https://github.com/user-attachments/assets/482f1aca-a2f5-4c47-8157-99792a986d3e" />
+<img width="450" height="373" alt="Screenshot 2026-09-22 083604" src="https://github.com/user-attachments/assets/482f1aca-a2f5-4c47-8157-99792a986d3e" />
 
-<img width="687" height="652" alt="Screenshot 2026-09-22 083546" src="https://github.com/user-attachments/assets/0d7c2c4d-8719-4e64-91a2-cc46ca829bfb" />
+<img width="450" height="427" alt="Screenshot 2026-09-22 083546" src="https://github.com/user-attachments/assets/0d7c2c4d-8719-4e64-91a2-cc46ca829bfb" />
 
-<img width="752" height="616" alt="Screenshot 2026-09-22 083532" src="https://github.com/user-attachments/assets/895973ea-b453-43b9-9dfd-1898d06978d4" />
+<img width="450" height="369" alt="Screenshot 2026-09-22 083532" src="https://github.com/user-attachments/assets/895973ea-b453-43b9-9dfd-1898d06978d4" />
 
-<img width="751" height="603" alt="Screenshot 2026-09-22 083456" src="https://github.com/user-attachments/assets/6e277787-ab24-489f-99db-50f34d7cb016" />
+<img width="450" height="361" alt="Screenshot 2026-09-22 083456" src="https://github.com/user-attachments/assets/6e277787-ab24-489f-99db-50f34d7cb016" />
+
+<img width="450" height="417" alt="Screenshot 2026-09-22 083702" src="https://github.com/user-attachments/assets/c3338982-49ee-4a2a-a1c4-a5ef638645b7" />
 
 WITH OUT Authorization: Bearer <your token>
 WE GET 401 ERROR
